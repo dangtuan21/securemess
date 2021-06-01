@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { View, Text, Image, Platform } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
-import { useColorScheme } from 'react-native-appearance';
-import dynamicStyles from './styles';
-import { logout } from '../../../onboarding/redux/auth';
-import { IMLocalized } from '../../../localization/IMLocalization';
-import IMMenuButton from '../IMMenuButton/IMMenuButton';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { View, Text, Image, Platform } from "react-native";
+import { useSelector, useDispatch } from "react-redux";
+import { useColorScheme } from "react-native-appearance";
+import dynamicStyles from "./styles";
+import { logout } from "../../../onboarding/redux/auth";
+import { IMLocalized } from "../../../localization/IMLocalization";
+import IMMenuButton from "../IMMenuButton/IMMenuButton";
 
 const IMDrawerMenu = (props) => {
-  const { appStyles, menuItems, menuItemsSettings, authManager, appConfig } = props;
+  const {
+    appStyles,
+    menuItems,
+    menuItemsSettings,
+    authManager,
+    appConfig,
+  } = props;
   const colorScheme = useColorScheme();
   const styles = dynamicStyles(appStyles, colorScheme);
   const { navigation } = props;
@@ -17,13 +23,13 @@ const IMDrawerMenu = (props) => {
   const dispatch = useDispatch();
 
   const defaultProfilePhotoURL =
-    'https://www.iosapptemplates.com/wp-content/uploads/2019/06/empty-avatar.jpg';
+    "https://www.iosapptemplates.com/wp-content/uploads/2019/06/empty-avatar.jpg";
 
   const actionLowerMenu = (action) => {
-    if(action == 'logout'){
+    if (action == "logout") {
       authManager?.logout(currentUser);
       dispatch(logout());
-      navigation.navigate('LoadScreen', {
+      navigation.navigate("LoadScreen", {
         appStyles: appStyles,
         appConfig: appConfig,
       });
@@ -44,23 +50,25 @@ const IMDrawerMenu = (props) => {
       onPress={() => {
         navigation.navigate(menuItem.navigationPath, {
           appStyles: appStyles,
-          appConfig: appConfig
+          appConfig: appConfig,
         });
       }}
     />
   ));
 
-  const mappingMenuSettings = menuItemsSettings.map((menuItemsSetting, index) => (
-    <IMMenuButton
-      key={index}
-      title={menuItemsSetting.title}
-      source={menuItemsSetting.icon}
-      appStyles={appStyles}
-      onPress={() => {
-        actionLowerMenu(menuItemsSetting.action);
-      }}
-    />
-  ));
+  const mappingMenuSettings = menuItemsSettings.map(
+    (menuItemsSetting, index) => (
+      <IMMenuButton
+        key={index}
+        title={menuItemsSetting.title}
+        source={menuItemsSetting.icon}
+        appStyles={appStyles}
+        onPress={() => {
+          actionLowerMenu(menuItemsSetting.action);
+        }}
+      />
+    )
+  );
 
   const lowerMenu =
     menuItemsSettings.length == 0 ? null : (
@@ -74,7 +82,12 @@ const IMDrawerMenu = (props) => {
       <View style={styles.header}>
         <Image
           style={styles.imageContainer}
-          source={{ uri: currentUser.photoURI || currentUser.profilePictureURL || defaultProfilePhotoURL }}
+          source={{
+            uri:
+              currentUser.photoURI ||
+              currentUser.profilePictureURL ||
+              defaultProfilePhotoURL,
+          }}
         />
         <Text style={styles.info}>
           {currentUser.firstName} {currentUser.lastName}
@@ -88,7 +101,7 @@ const IMDrawerMenu = (props) => {
         </View>
         <View style={styles.footer}>
           <Text style={styles.textFooter}>
-            {IMLocalized('Made by Instamobile')}
+            {IMLocalized("Made by AwesomeTeam")}
           </Text>
         </View>
       </View>

@@ -873,7 +873,7 @@ SPEC CHECKSUMS:
   EXLocation: 65d4250e06ae1c59a3b4aa5d93aa36b0eed8ad7b
   EXPermissions: 8f8c1c05580c4e02d4ee2c8dd74bfe173ff6a723
   FBLazyVector: 49cbe4b43e445b06bf29199b6ad2057649e4c8f5
-  FBReactNativeSpec: 35b51ee623e97cbeda076fcd343fbe58774602cf
+  FBReactNativeSpec: ec75b1349b67ccb8bd76565fe2c36e0d52950a25
   FBSDKCoreKit: e7dcac0aabcfb09d0166998edd95fe3b05a0ce5d
   FBSDKLoginKit: 1b0cf04df0370b37404213157b060d6666ede814
   Firebase: cd2ab85eec8170dc260186159f21072ecb679ad5

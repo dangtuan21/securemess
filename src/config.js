@@ -1,5 +1,5 @@
-import { IMLocalized, setI18nConfig } from './Core/localization/IMLocalization';
-import DynamicAppStyles from './DynamicAppStyles';
+import { IMLocalized, setI18nConfig } from "./Core/localization/IMLocalization";
+import DynamicAppStyles from "./DynamicAppStyles";
 
 setI18nConfig();
 
@@ -8,42 +8,42 @@ const regexForPhoneNumber = /\d{9}$/;
 
 const ChatConfig = {
   isSMSAuthEnabled: true,
-  appIdentifier: 'rn-messenger-android',
-  facebookIdentifier: '285315185217069',
+  appIdentifier: "rn-messenger-android",
+  facebookIdentifier: "285315185217069",
   webClientId:
-    '525472070731-mg8m3q8v9vp1port7nkbq9le65hp917t.apps.googleusercontent.com',
+    "525472070731-mg8m3q8v9vp1port7nkbq9le65hp917t.apps.googleusercontent.com",
   onboardingConfig: {
-    welcomeTitle: IMLocalized('Instachatty'),
+    welcomeTitle: IMLocalized("SecureTalk"),
     welcomeCaption: IMLocalized(
-      'Send texts, photos, videos, and audio messages to your close friends.',
+      "Send more secured texts, photos, videos, and audio messages."
     ),
     walkthroughScreens: [
       {
-        icon: require('../assets/icons/private-chat-icon.png'),
-        title: IMLocalized('Private Messages'),
+        icon: require("../assets/icons/private-chat-icon.png"),
+        title: IMLocalized("Private Messages"),
         description: IMLocalized(
-          'Communicate with your friends via private messages.',
+          "Communicate with your friends via private messages."
         ),
       },
       {
-        icon: require('../assets/icons/group-chat-bubbles-icon.png'),
-        title: IMLocalized('Group Chats'),
+        icon: require("../assets/icons/group-chat-bubbles-icon.png"),
+        title: IMLocalized("Group Chats"),
         description: IMLocalized(
-          'Create group chats and stay in touch with your gang.',
+          "Create group chats and stay in touch with your gang."
         ),
       },
       {
-        icon: require('../assets/icons/camera-walkthrough-icon.png'),
-        title: IMLocalized('Send Photos & Videos'),
+        icon: require("../assets/icons/camera-walkthrough-icon.png"),
+        title: IMLocalized("Send Photos & Videos"),
         description: IMLocalized(
-          'Have fun with your friends by sending photos and videos to each other.',
+          "Have fun with your friends by sending photos and videos to each other."
         ),
       },
       {
-        icon: require('../assets/icons/notification.png'),
-        title: IMLocalized('Get Notified'),
+        icon: require("../assets/icons/notification.png"),
+        title: IMLocalized("Get Notified"),
         description: IMLocalized(
-          'Receive notifications when your friends are looking for you.',
+          "Receive notifications when your friends are looking for you."
         ),
       },
     ],
@@ -51,129 +51,129 @@ const ChatConfig = {
   drawerMenu: {
     upperMenu: [
       {
-        title: IMLocalized('Home'),
+        title: IMLocalized("Home"),
         icon:
-          Platform.OS === 'ios'
+          Platform.OS === "ios"
             ? DynamicAppStyles.iconSet.home
             : DynamicAppStyles.iconSet.home_android,
-        navigationPath: 'HomeSearchStack',
+        navigationPath: "HomeSearchStack",
       },
       {
-        title: IMLocalized('Friends'),
+        title: IMLocalized("Friends"),
         icon:
-          Platform.OS === 'ios'
+          Platform.OS === "ios"
             ? DynamicAppStyles.iconSet.users
             : DynamicAppStyles.iconSet.users_android,
-        navigationPath: 'FriendsSearchStack',
+        navigationPath: "FriendsSearchStack",
       },
       {
-        title: IMLocalized('Profile'),
+        title: IMLocalized("Profile"),
         icon:
-          Platform.OS === 'ios'
+          Platform.OS === "ios"
             ? DynamicAppStyles.iconSet.user
             : DynamicAppStyles.iconSet.user_android,
-        navigationPath: 'MyProfileStack',
+        navigationPath: "MyProfileStack",
       },
     ],
     lowerMenu: [],
   },
-  tosLink: 'https://www.instamobile.io/eula-instachatty/',
+  tosLink: "https://www.awesometeam.io/eula/",
   isUsernameFieldEnabled: false,
   smsSignupFields: [
     {
-      displayName: IMLocalized('First Name'),
-      type: 'ascii-capable',
+      displayName: IMLocalized("First Name"),
+      type: "ascii-capable",
       editable: true,
       regex: regexForNames,
-      key: 'firstName',
-      placeholder: 'First Name',
+      key: "firstName",
+      placeholder: "First Name",
     },
     {
-      displayName: IMLocalized('Last Name'),
-      type: 'ascii-capable',
+      displayName: IMLocalized("Last Name"),
+      type: "ascii-capable",
       editable: true,
       regex: regexForNames,
-      key: 'lastName',
-      placeholder: 'Last Name',
+      key: "lastName",
+      placeholder: "Last Name",
     },
   ],
   signupFields: [
     {
-      displayName: IMLocalized('First Name'),
-      type: 'ascii-capable',
+      displayName: IMLocalized("First Name"),
+      type: "ascii-capable",
       editable: true,
       regex: regexForNames,
-      key: 'firstName',
-      placeholder: 'First Name',
+      key: "firstName",
+      placeholder: "First Name",
     },
     {
-      displayName: IMLocalized('Last Name'),
-      type: 'ascii-capable',
+      displayName: IMLocalized("Last Name"),
+      type: "ascii-capable",
       editable: true,
       regex: regexForNames,
-      key: 'lastName',
-      placeholder: 'Last Name',
+      key: "lastName",
+      placeholder: "Last Name",
     },
     {
-      displayName: IMLocalized('E-mail Address'),
-      type: 'email-address',
+      displayName: IMLocalized("E-mail Address"),
+      type: "email-address",
       editable: true,
       regex: regexForNames,
-      key: 'email',
-      placeholder: 'E-mail Address',
-      autoCapitalize: 'none',
+      key: "email",
+      placeholder: "E-mail Address",
+      autoCapitalize: "none",
     },
     {
-      displayName: IMLocalized('Password'),
-      type: 'default',
+      displayName: IMLocalized("Password"),
+      type: "default",
       secureTextEntry: true,
       editable: true,
       regex: regexForNames,
-      key: 'password',
-      placeholder: 'Password',
-      autoCapitalize: 'none',
+      key: "password",
+      placeholder: "Password",
+      autoCapitalize: "none",
     },
   ],
   editProfileFields: {
     sections: [
       {
-        title: IMLocalized('PUBLIC PROFILE'),
+        title: IMLocalized("PUBLIC PROFILE"),
         fields: [
           {
-            displayName: IMLocalized('First Name'),
-            type: 'text',
+            displayName: IMLocalized("First Name"),
+            type: "text",
             editable: true,
             regex: regexForNames,
-            key: 'firstName',
-            placeholder: 'Your first name',
+            key: "firstName",
+            placeholder: "Your first name",
           },
           {
-            displayName: IMLocalized('Last Name'),
-            type: 'text',
+            displayName: IMLocalized("Last Name"),
+            type: "text",
             editable: true,
             regex: regexForNames,
-            key: 'lastName',
-            placeholder: 'Your last name',
+            key: "lastName",
+            placeholder: "Your last name",
           },
         ],
       },
       {
-        title: IMLocalized('PRIVATE DETAILS'),
+        title: IMLocalized("PRIVATE DETAILS"),
         fields: [
           {
-            displayName: IMLocalized('E-mail Address'),
-            type: 'text',
+            displayName: IMLocalized("E-mail Address"),
+            type: "text",
             editable: true,
-            key: 'email',
-            placeholder: 'Your email address',
+            key: "email",
+            placeholder: "Your email address",
           },
           {
-            displayName: IMLocalized('Phone Number'),
-            type: 'text',
+            displayName: IMLocalized("Phone Number"),
+            type: "text",
             editable: true,
             regex: regexForPhoneNumber,
-            key: 'phone',
-            placeholder: 'Your phone number',
+            key: "phone",
+            placeholder: "Your phone number",
           },
         ],
       },
@@ -182,22 +182,22 @@ const ChatConfig = {
   userSettingsFields: {
     sections: [
       {
-        title: IMLocalized('GENERAL'),
+        title: IMLocalized("GENERAL"),
         fields: [
           {
-            displayName: IMLocalized('Allow Push Notifications'),
-            type: 'switch',
+            displayName: IMLocalized("Allow Push Notifications"),
+            type: "switch",
             editable: true,
-            key: 'push_notifications_enabled',
+            key: "push_notifications_enabled",
             value: true,
           },
           {
-            ...(Platform.OS === 'ios'
+            ...(Platform.OS === "ios"
               ? {
-                  displayName: IMLocalized('Enable Face ID / Touch ID'),
-                  type: 'switch',
+                  displayName: IMLocalized("Enable Face ID / Touch ID"),
+                  type: "switch",
                   editable: true,
-                  key: 'face_id_enabled',
+                  key: "face_id_enabled",
                   value: false,
                 }
               : {}),
@@ -205,12 +205,12 @@ const ChatConfig = {
         ],
       },
       {
-        title: '',
+        title: "",
         fields: [
           {
-            displayName: IMLocalized('Save'),
-            type: 'button',
-            key: 'savebutton',
+            displayName: IMLocalized("Save"),
+            type: "button",
+            key: "savebutton",
           },
         ],
       },
@@ -219,38 +219,38 @@ const ChatConfig = {
   contactUsFields: {
     sections: [
       {
-        title: IMLocalized('CONTACT'),
+        title: IMLocalized("CONTACT"),
         fields: [
           {
-            displayName: IMLocalized('Address'),
-            type: 'text',
+            displayName: IMLocalized("Address"),
+            type: "text",
             editable: false,
-            key: 'push_notifications_enabled',
-            value: '142 Steiner Street, San Francisco, CA, 94115',
+            key: "push_notifications_enabled",
+            value: "321 Awesome Street, Great City, USA",
           },
           {
-            displayName: IMLocalized('E-mail us'),
-            value: 'florian@instamobile.io',
-            type: 'text',
+            displayName: IMLocalized("E-mail us"),
+            value: "info@awesometeam.io",
+            type: "text",
             editable: false,
-            key: 'email',
-            placeholder: 'Your e-mail address',
+            key: "email",
+            placeholder: "Your e-mail address",
           },
         ],
       },
       {
-        title: '',
+        title: "",
         fields: [
           {
-            displayName: IMLocalized('Call Us'),
-            type: 'button',
-            key: 'savebutton',
+            displayName: IMLocalized("Call Us"),
+            type: "button",
+            key: "savebutton",
           },
         ],
       },
     ],
   },
-  contactUsPhoneNumber: '+16504850000',
+  contactUsPhoneNumber: "+16504850000",
 };
 
 export default ChatConfig;

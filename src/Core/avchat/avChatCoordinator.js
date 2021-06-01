@@ -1,11 +1,11 @@
-import { setActiveCallData } from './redux';
-import uuidv4 from 'uuidv4';
-import { notificationManager } from '../notifications';
-import { IMLocalized } from '../localization/IMLocalization';
+import { setActiveCallData } from "./redux";
+import uuidv4 from "uuidv4";
+import { notificationManager } from "../notifications";
+import { IMLocalized } from "../localization/IMLocalization";
 
 const pushKitEndpoint =
-  'https://us-central1-production-a9404.cloudfunctions.net/initiateChatCall';
-const iOSBundleID = 'io.instamobile.chat.rn.ios';
+  "https://us-central1-production-a9404.cloudfunctions.net/initiateChatCall";
+const iOSBundleID = "io.instamobile.chat.rn.ios";
 
 export default class AVChatCoordinator {
   constructor(apiManager) {
@@ -17,14 +17,14 @@ export default class AVChatCoordinator {
 
     // Sometimes the channel does not contain the current user as a participant in the participants field, so we make sure we add it before the call starts, so we have all the participants propagated properly in the signaling process
     const participants = [currentUser].concat(
-      channel.participants.filter((u) => u.id !== currentUser.id),
+      channel.participants.filter((u) => u.id !== currentUser.id)
     );
     const callID = uuidv4();
-    const callTitle = channel.name ?? channel.title ?? '';
+    const callTitle = channel.name ?? channel.title ?? "";
 
     // We first set the active call data on the current redux state, so the calling screens will show up automatically on the initiator device
     const activeCallData = {
-      status: 'outgoing',
+      status: "outgoing",
       callType: callType,
       callID: callID,
       channelName: callTitle,
@@ -43,7 +43,7 @@ export default class AVChatCoordinator {
       callTitle,
       callType,
       currentUser,
-      participants,
+      participants
     );
 
     // Then, we initiate a push kit notification (iOS) and a push notification (Android)
@@ -52,7 +52,7 @@ export default class AVChatCoordinator {
       channel?.otherParticipants,
       callType,
       callTitle,
-      callID,
+      callID
     );
   };
 
@@ -85,7 +85,7 @@ export default class AVChatCoordinator {
     recipients,
     callType,
     channelName,
-    callID,
+    callID
   ) => {
     // We send a push kit notification (in case the recipients are on iOS)
     const data = {
@@ -98,14 +98,14 @@ export default class AVChatCoordinator {
     };
 
     fetch(pushKitEndpoint, {
-      method: 'post',
+      method: "post",
       headers: new Headers({
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       }),
       body: JSON.stringify(data),
     });
 
-    console.log('ttttt push kit ' + JSON.stringify(data));
+    console.log("ttttt push kit " + JSON.stringify(data));
 
     // We send a push notification (in case the recipients are on Android)
     recipients.forEach((recipient) => {
@@ -113,7 +113,7 @@ export default class AVChatCoordinator {
         caller,
         recipient,
         callType,
-        callID,
+        callID
       );
     });
 
@@ -121,11 +121,11 @@ export default class AVChatCoordinator {
     recipients.forEach((recipient) => {
       notificationManager.sendPushNotification(
         recipient,
-        'Instachatty',
-        (caller?.firstName ?? IMLocalized('Someone')) +
-          IMLocalized(' is ' + callType + ' calling you...'),
-        callType + '_call',
-        { callID: callID },
+        "SecureTalk",
+        (caller?.firstName ?? IMLocalized("Someone")) +
+          IMLocalized(" is " + callType + " calling you..."),
+        callType + "_call",
+        { callID: callID }
       );
     });
   };
